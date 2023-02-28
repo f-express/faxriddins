@@ -7,19 +7,36 @@ import axios from 'axios'
 import '../Category/Category.scss'
 import { Link } from 'react-router-dom'
 import FooterSmall from '../../components/Footer_small/FooterSmall'
+import loader from  '../../images/loadaer.gif'
+
 const Category = () => {
+  const [loading, setLoading] = useState(false)
   const { id } = useParams();
   const [category, setCategory] = useState([])
   const [moreCategoies, setMoreCategories] = useState([])
   useEffect(() => {
+    setLoading(true)
     axios(`https://api.escuelajs.co/api/v1/categories/${id}/products?offset=0&limit=24`)
-      .then(response => setCategory(response.data))
-      .catch(err => console.error(err))
+      .then(response => {
+        setLoading(false)
+        setCategory(response.data)
+      })
+      .catch(err => {
+        setLoading(false)
+        console.error(err)
+      })
   }, [])
   useEffect(() => {
+    setLoading(true)
     axios(`https://api.escuelajs.co/api/v1/categories?offset=${id}`)
-      .then(response => setMoreCategories(response.data))
-      .catch(err => console.error(err))
+      .then(response => {
+        setLoading(false)
+        setMoreCategories(response.data)
+      })
+      .catch(err => {
+        setLoading(false)
+        console.error(err)
+      })
   }, [])
   console.log(category);
   console.log(moreCategoies);
@@ -31,9 +48,9 @@ const Category = () => {
         <h4>Featured Event</h4>
         <img src={appleBanner} className='text-center' />
       </div>
-        <h3 className='mx-5 px-5 '>Shop by Category</h3>
+      <h3 className='mx-5 px-5 '>Shop by Category</h3>
       <div className='d-flex mx-5 px-5 flex-wrap gap-3 more-category'>
-        {
+        {loading === false ?
           moreCategoies.map(element =>
             <a href={`/category/${element.id}`} className="text-decoration-none text-dark" >
               <div>
@@ -42,10 +59,12 @@ const Category = () => {
               </div>
             </a>
           )
+          :
+          <img src={loader} className='loader' />
         }
       </div>
       <div className='mx-5 px-5 categories-wrapper'>
-        { category.length > 0 ? 
+        {category.length > 0  && loading === false ?
           category.map(el =>
             <Link to={`/product/${el.id}`} className="text-decoration-none text-dark" >
               <div >
@@ -54,9 +73,11 @@ const Category = () => {
                 <p><strong>Price: {el.price}$</strong></p>
               </div>
             </Link>
-            )
-            :
-            <h2 className='text-primary '>Not more informations</h2>
+          )
+          :
+          <h2 className='text-primary '>Not more informations</h2>
+          &&
+          <img src={loader} className='loader' />
         }
       </div>
       <FooterSmall />

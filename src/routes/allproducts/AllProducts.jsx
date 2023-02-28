@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../images/logo512.png'
+import loader from '../../images/loadaer.gif'
 const AllProducts = () => {
     const [usersdata, setUsersdata] = useState([])
     const [loading, setLoading] = useState(false)
@@ -40,7 +41,7 @@ const AllProducts = () => {
                         </Link>
                     )
                     :
-                    <p>Loading</p>
+                    <img src={loader} className='loader ' />
                 }
             </div>
         </div>
