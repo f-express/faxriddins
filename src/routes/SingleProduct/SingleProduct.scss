@@ -1,0 +1,19 @@
+.single-product-wrapper{
+    margin-top: 80px;
+    padding-bottom: 150px;
+    h3{
+        font-size: 2rem;
+    }
+    p{
+        font-size: 1.5rem;
+    }
+}
+.buttons-group{
+    margin-left: 300px;
+    button{
+        border-radius: 28px;
+    }
+    :last-child{
+        background-color: #3498CA;
+    }
+}

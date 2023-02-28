@@ -1,0 +1,22 @@
+.products-wrapper{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.shop-button{
+    padding: 8px 10px;
+}
+
+.circle-products{
+    img{
+        border-radius: 50%;
+    }
+}
+
+.product-title{
+    font-size: 15px;
+}
+.banner{
+    margin-left: 150px;
+}
