@@ -6,7 +6,9 @@ import logo from '../../images/logo512.png'
 import '../SingleProduct/SingleProduct.scss'
 import  Search  from '../../components/Search/Search'
 import Header from '../../components/Header/Header'
+import { useDispatch } from 'react-redux'
 const SingleProduct = () => {
+    const dipatch = useDispatch()
     const { id } = useParams();
     const [productData, setProductData] = useState([])
     useEffect(() => {
@@ -22,6 +24,9 @@ const SingleProduct = () => {
             .then(response => setMoreProducts(response.data))
             .catch(error => console.error(error))
     },[])
+    const addToBasket = () => {
+        dipatch( {obj: productData,type:"ADD_TO_BASKET"})
+    }
     const { images, title, description, price } = productData
     return (
         <div className='container'>
@@ -37,7 +42,7 @@ const SingleProduct = () => {
                     <p><strong>Description:</strong>  {description}</p>
                     <p>Price:  <strong>US ${price}</strong></p>
                     <div className="d-flex flex-column gap-3 w-50 my-5 buttons-group">
-                        <button className='buy-button btn  btn-primary'>Buy it Now</button>
+                        <button className='buy-button btn  btn-primary' onClick={addToBasket}>Buy it Now</button>
                         <button className='buy-button btn btn-primary'>Add to Card</button>
                     </div>
                 </div>

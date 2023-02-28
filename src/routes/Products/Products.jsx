@@ -7,6 +7,7 @@ import Product from './product/Product'
 
 const Products = () => {
     const [usersdata, setUsersdata] = useState([])
+    const [loading, setLoading] = useState(false)
     useEffect(() => {
         axios("https://api.escuelajs.co/api/v1/products?offset=0&limit=5")
             .then(response =>{
@@ -48,7 +49,7 @@ const Products = () => {
             <div className="products-wrapper my-5">
                 {
                 usersdata.map(data =>
-                    <Link to='/singleProduct:' className='text-decoration-none text-dark'>
+                    <Link to={`/product/${data.id}`} className='text-decoration-none text-dark'>
                         <div className='shadow'>
                             <img src={data.images[0]} height='170' />
                         </div>

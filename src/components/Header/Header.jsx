@@ -7,9 +7,8 @@ import basketIcon from '../../images/basket.png'
 import { useSelector } from 'react-redux'
 import user from '../../images/user.png'
 const Header = () => {
-    const { name, image } = useSelector(data => data)
-    console.log(name, image);
     return (
+        <>
         <div className='container py-2'>
             <div className="wrapper">
                 <ul>
@@ -42,13 +41,9 @@ const Header = () => {
                         <Link to='/basket'> <img src={basketIcon} height='20' /></Link>
                     </div>
                 </div>
-                <div className="d-flex flex-column avatar">
-                    <img src={image ? image : user } height="50" width='50' className='circle-avatar' />
-                    <p className='text-center'>{name ? name : "User"  }</p>
-                </div>
             </div>
-
         </div>
+        </>
     )
 }
 

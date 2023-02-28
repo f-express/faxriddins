@@ -6,6 +6,7 @@ import Create from "./routes/Create/Create";
 import Login from "./routes/Login/Login";
 import SingleProduct from "./routes/SingleProduct/SingleProduct";
 import SearchedProducts from '../src/routes/searchedProducts/SearchedProducts'
+import Basket from "./routes/basket/Basket";
 function App() {
 
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/all-products" element={<AllProducts />}></Route>
         <Route path="/product/:id" element={<SingleProduct />}></Route>
         <Route path="/searched/:element" element={<SearchedProducts />}></Route>
+        <Route path="/basket" element={<Basket />}></Route>
       </Routes>
     </>
   );
