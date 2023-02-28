@@ -25,7 +25,7 @@ const AllProducts = () => {
                 <Link to='/'>
                     <img src={logo} className=' my-3 ' />
                 </Link>
-                <Link to='/sign-in' >Login</Link>
+
             </div>
             <div className='d-flex flex-wrap gap-2  my-3'>
                 {loading == false ? 

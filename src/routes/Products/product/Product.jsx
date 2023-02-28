@@ -24,7 +24,7 @@ const Product = () => {
                 <div className='d-flex flex-wrap gap-5 circle-products my-3'>
                     {
                         categoryData.map(data =>
-                            <Link to={`/category/${data.id}`}  className='text-decoration-none text-dark'>
+                            <Link to={`/category/${data.id}`}  className='text-decoration-none text-dark' key={data.id}>
                                 <div>
                                     <img src={data.image} height='160' />
                                 </div>
@@ -46,7 +46,7 @@ const Product = () => {
                 <div className='d-flex flex-wrap gap-5 circle-products my-3'>
                     {
                         categoryData.map(data =>
-                            <Link to={`/category/${data.id}`} className='text-decoration-none text-dark'>
+                            <Link to={`/category/${data.id}`} className='text-decoration-none text-dark' key={data.id}>
                                 <div>
                                     <img src={data.image} height='160' />
                                 </div>
@@ -71,7 +71,7 @@ const Product = () => {
                 <div className='d-flex flex-wrap gap-5 circle-products my-3'>
                     {
                         categoryData.map(data =>
-                            <Link to={`/category/${data.id}`}  className='text-decoration-none text-dark'>
+                            <Link to={`/category/${data.id}`}  className='text-decoration-none text-dark ' key={data.id}>
                                 <div>
                                     <img src={data.image} height='160' />
                                 </div>

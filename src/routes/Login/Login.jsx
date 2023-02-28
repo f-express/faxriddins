@@ -3,7 +3,13 @@ import logo from '../../images/logo512.png'
 import { Link } from 'react-router-dom'
 import '../Login/Login.scss'
 import FooterSmall from '../../components/Footer_small/FooterSmall'
+import { useNavigate } from 'react-router-dom'
 const Login = () => {
+    const navigate = useNavigate()
+    const loginUser = (e) => {
+        e.preventDefault();
+        console.log(e.target.value);
+    }
     return (
         <div className='container'>
             <div className="login-wrapper">
@@ -13,7 +19,7 @@ const Login = () => {
                     </Link>
                     <Link className='py-2'>Tell us what you think</Link>
                 </div>
-                <div className=" justify-content-center margin-left">
+                <form className=" justify-content-center margin-left" onSubmit={loginUser}>
                     <h2 className='text-center'>Hello</h2>
                     <p className='text-center'>Sign in to eBay or <Link to='/create'>Create an account</Link></p>
                     <div className="login-elements">
@@ -28,7 +34,7 @@ const Login = () => {
                         <p>Continue with Google</p>
                     </div>
                     </div>
-                </div>
+                </form>
             </div>
             <FooterSmall />
         </div>

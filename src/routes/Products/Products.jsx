@@ -25,13 +25,13 @@ const Products = () => {
                     Up to 60% off <br /> home must- <br />
                     haves
                     </h3>
-                        <Link to='/categories'>
+                        <Link to='/categories' key={"123"}>
                     <button className='shop-button'>Shop now <span className='fw-bold px-1 fs-5'> &#10132;</span></button>
                         </Link>
                 </div>
                 {
                 usersdata.map(data =>
-                    <Link to={`/product/${data.id}`} className='text-decoration-none text-dark'>
+                    <Link to={`/product/${data.id}`} className='text-decoration-none text-dark' key={data.id}>
                         <div className='shadow'>
                             <img src={data.images[0]} height='140' />
                         </div>

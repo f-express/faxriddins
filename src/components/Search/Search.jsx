@@ -31,11 +31,12 @@ const Search = () => {
                             Shop by category
                         </button>
                         <ul class="dropdown-menu bg-light">
-                            <li><a class="dropdown-item active" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            <li><a class="dropdown-item" href="#">Separated link</a></li>
-                        </ul>
+                            <li><a class="dropdown-item active" href="/category/1">Clothes</a></li>
+                                <li><a class="dropdown-item" href="/category/2">Electronics</a></li>
+                                <li><a class="dropdown-item" href="/category/3">Furnitures</a></li>
+                                <li><a class="dropdown-item" href="/category/4">Shoes</a></li>
+                                <li><a class="dropdown-item" href="/category/5">Others</a></li>
+                            </ul> 
                     </div>
                     <form className="search d-flex" onSubmit={getSearchResult}>
                         <div className='search-icon' >
@@ -47,10 +48,11 @@ const Search = () => {
                                 All Categories
                             </button>
                             <ul class="dropdown-menu bg-light">
-                                <li><a class="dropdown-item active" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                            <li><a class="dropdown-item active" href="/category/1">Clothes</a></li>
+                                <li><a class="dropdown-item" href="/category/2">Electronics</a></li>
+                                <li><a class="dropdown-item" href="/category/3">Furnitures</a></li>
+                                <li><a class="dropdown-item" href="/category/4">Shoes</a></li>
+                                <li><a class="dropdown-item" href="/category/5">Others</a></li>
                             </ul>
                         </div>
                         <button className='btn btn-primary'>Search</button>
