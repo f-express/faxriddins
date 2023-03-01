@@ -42,14 +42,14 @@ const SingleProduct = () => {
     const addToBasket = () => {
         dipatch({ obj: productData, type: "ADD_TO_BASKET" })
     }
-    const { images, title, description, price } = productData
+    const { images, title, description, price , } = productData
     return (
         <div className='container'>
             <Header />
             <Search />
             <div className='d-flex gap-5 single-product-wrapper'>
                 <div>
-                    <img src={images} />
+                    <Link to={`/see/${productData.id}`}> <img src={images} /></Link>
                 </div>
                 <div className='p-2'>
                     <h3>{title}</h3>

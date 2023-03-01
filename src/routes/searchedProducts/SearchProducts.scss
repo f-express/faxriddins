@@ -1,0 +1,29 @@
+.found-products{
+    padding-left: 30px;
+}
+
+.product-image {
+    img {
+        height: 400px;
+        width: 500px;
+    }
+}
+
+.product-info{
+    padding-left: 30px;
+    padding-top: 30px;
+    width: 1000px;
+    h3{
+        font-size: 2.5rem;
+    }
+    .description{
+        font-size: 1.8rem;
+    }
+    .price{
+        font-size: 2rem;
+    }
+}
+
+.searched-products-loader{
+    margin-left: 550px;
+}

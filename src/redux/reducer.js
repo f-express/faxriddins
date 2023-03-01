@@ -1,18 +1,19 @@
 
 const initialState = {
+  email:"",
+  avatar: "",
   name: "",
-  image: ""
+  id: ""
 }
 
 const basketInitialState = {
   obj: []
 }
+
 const reducer = (state = initialState, action) => {
-  console.log(action);
   switch (action.type) {
-    case "CREATED_NAME":
-    case "CREATED_image":
-      return { name: action.name, image: action.image }
+    case "CREATED":
+      return { email: action.email, avatar: action.avatar, name: action.name , id: action.id}
     default:
       return state
   }

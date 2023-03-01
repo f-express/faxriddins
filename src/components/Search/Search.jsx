@@ -4,10 +4,12 @@ import logo from '../../images/logo512.png'
 import searchIcon from '../../images/search.png'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 const Search = () => {
+    const navigate = useNavigate()
     const [searchResult, setSearchResult] = useState([])
-    const [searValue, setSearchValue] = useState([])
+    const [searchValue, setSearchValue] = useState([])
     const [searchedInputValue,setSearchedInputValue] = useState([])
     const searchProuducts = (e) => {
         setSearchValue(e.target.value)
@@ -19,7 +21,7 @@ const Search = () => {
     console.log(searchResult);
     const getSearchResult = (e) => {
         e.preventDefault();
-        window.location.href =`/searched/${searchedInputValue}`
+        window.location.href = `/searched/${searchValue}`
     }
     return (
         <div className='container '>
@@ -61,11 +63,11 @@ const Search = () => {
                 </div>
             </div>
             <div>
-                {searchResult.length > 0  && searValue.length > 0 ?
+                {searchResult.length > 0  && searchValue.length > 0 ?
                     <div  className=' text-light search-value'>
                         {
                             searchResult.map(element =>
-                                <Link className='element-title'>{element.title}</Link>
+                                <a className='element-title'  href={`/product/${element.id}`}>{element.title}</a>
                             )
                         }
                     </div>

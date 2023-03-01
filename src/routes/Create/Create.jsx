@@ -12,7 +12,6 @@ const Create = () => {
   const dipatch = useDispatch()
   const [userData,setUserData] = useState({
     name:"",
-    lastNmae:"",
     password:"",
     email:"",
     avatar:""
@@ -21,8 +20,8 @@ const Create = () => {
     e.preventDefault();
     axios.post("https://api.escuelajs.co/api/v1/users/", userData)
     .then(response => {
-      if(response.data.name,response.data.avatar){
-        dipatch({name: response.data.name,image: response.data.avatar,  type:"CREATED_NAME",type:"CREATED_image"})
+      if(response.data.id){
+        dipatch({email: response.data.email, avatar: response.data.avatar,name:response.data.name, id: response.data.id,  type:"CREATED"})
         navigate("/")
       }
     })
@@ -41,10 +40,10 @@ const Create = () => {
           <form onSubmit={createUser}>
             <div className='d-flex gap-3 align-items-center'>
               <input type="text" placeholder='First name' onChange={e => {setUserData({...userData, name:e.target.value})}} />
-              <input type="text" placeholder='Last name' onChange={e => {setUserData({...userData, lastNmae:e.target.value})}} />
+              <input type="text" placeholder='Last name' onChange={e => {setUserData({...userData, lastname:e.target.value})}} />
             </div>
             <div className='d-flex password-and-email ' >
-              <input type="text" placeholder='Email'onChange={e => {setUserData({...userData, email:e.target.value})}} />
+              <input type="email" placeholder='Email'onChange={e => {setUserData({...userData, email:e.target.value})}} />
               <input type="password" placeholder='Password' onChange={e => {setUserData({...userData, password:e.target.value})}} />
               <input type="url" placeholder='Avatar' onChange={e => {setUserData({...userData, avatar:e.target.value})}} />
             </div>

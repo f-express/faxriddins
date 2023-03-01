@@ -7,6 +7,8 @@ import Login from "./routes/Login/Login";
 import SingleProduct from "./routes/SingleProduct/SingleProduct";
 import SearchedProducts from '../src/routes/searchedProducts/SearchedProducts'
 import Basket from "./routes/basket/Basket";
+import User from "./routes/user/User";
+import SeePhoto from "./routes/seephoto/SeePhoto";
 function App() {
 
   return (
@@ -19,8 +21,10 @@ function App() {
         <Route path="/create" element={<Create />}></Route>
         <Route path="/all-products" element={<AllProducts />}></Route>
         <Route path="/product/:id" element={<SingleProduct />}></Route>
-        <Route path="/searched/:element" element={<SearchedProducts />}></Route>
+        <Route path="/searched/:productName" element={<SearchedProducts />}></Route>
         <Route path="/basket" element={<Basket />}></Route>
+        <Route path="/user" element={<User />}></Route>
+        <Route path="/see/:id" element={<SeePhoto />}></Route>
       </Routes>
     </>
   );

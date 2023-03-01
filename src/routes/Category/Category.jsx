@@ -7,7 +7,7 @@ import axios from 'axios'
 import '../Category/Category.scss'
 import { Link } from 'react-router-dom'
 import FooterSmall from '../../components/Footer_small/FooterSmall'
-import loader from  '../../images/loadaer.gif'
+import loader from '../../images/loadaer.gif'
 
 const Category = () => {
   const [loading, setLoading] = useState(false)
@@ -64,7 +64,7 @@ const Category = () => {
         }
       </div>
       <div className='mx-5 px-5 categories-wrapper'>
-        {category.length > 0  && loading === false ?
+        { loading === false ?
           category.map(el =>
             <Link to={`/product/${el.id}`} className="text-decoration-none text-dark" >
               <div >
@@ -75,9 +75,8 @@ const Category = () => {
             </Link>
           )
           :
-          <h2 className='text-primary '>Not more informations</h2>
-          &&
           <img src={loader} className='loader' />
+
         }
       </div>
       <FooterSmall />
